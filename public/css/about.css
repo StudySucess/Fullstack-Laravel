@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+.About-section {
+    background: url(../images/SSH-text.png) no-repeat left;
+    background-size: 30%;
+    background-position: 20%;
+    background-color: white;
+    overflow: hidden;
+    padding: 40px; 
+}
+.inner-container {
+    width: 40%;
+    float: right;
+    background-color: rgb(124, 114, 165);
+    padding: 110px;
+    border-radius: 20px;
+}
+.inner-container h1 {
+    font-family: 'SF Pro Display';
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.text {
+    font-family: 'Roboto Mono';
+    font-size: 13px;
+    color: #fff8f8;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.readMoreBtn {
+    background-color: #7381FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-family: 'Roboto Mono';
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}

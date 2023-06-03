@@ -23,7 +23,7 @@
 
             {{-- <input type="password" id="passInput" name="password" placeholder="{{ __('Password') }}"> --}}
 
-            <input id="password" type="password" placeholder="{{ __('Password') }}" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <input id="password" type="password" placeholder="{{ __('Password') }}" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -50,5 +50,5 @@
         <input type="submit" value="Login" class="submit">
 
     </form>
-    <p class="signOption">New to StudySuccesHub? <a id="link" href="register.php">Sign up</a></p>
+    <p class="signOption">New to StudySuccesHub? <a id="link" href="{{ route('register') }}">Sign up</a></p>
 @endsection

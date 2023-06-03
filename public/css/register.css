@@ -51,7 +51,7 @@ a {
 }
 
 form {
-    margin: 60px 0;
+    margin: 40px 0;
 }
 
 input[type="email"],
@@ -68,10 +68,6 @@ input[type="text"] {
     border-radius: 15px;
     display: block;
 
-}
-
-.log {
-    bottom: 25px;
 }
 
 .invalid-feedback {
@@ -99,6 +95,7 @@ input[type="text"] {
     border: none;
     border-radius: 20px;
 
+    /* font styling */
     color: white;
     font-size: 26px;
     text-align: center;
@@ -114,7 +111,6 @@ input[type="text"] {
     bottom: 200px;
     left: 50%;
     transform: translate(-50%, -50%);
-    right: 0;
 }
 
 @media only screen and (max-width: 1080px) {
