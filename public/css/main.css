@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../icon-fonts/icomoon.eot?cmpf9f');
+    src:  url('../icon-fonts/icomoon.eot?cmpf9f#iefix') format('embedded-opentype'),
+      url('../icon-fonts/icomoon.ttf?cmpf9f') format('truetype'),
+      url('../icon-fonts/icomoon.woff?cmpf9f') format('woff'),
+      url('../icon-fonts/icomoon.svg?cmpf9f#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0px;
+}
+
+/* Header styling */
+
+.header {
+    height: 80px;
+    padding: 10px 24px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+
+    display: flex;
+}
+
+.headerGradient {
+    width: 100%;
+    background: linear-gradient(239.74deg, #7381FF 31.58%, #6701CC 161.95%);
+    box-shadow: 0px 10px 40px 0px rgba(117, 131, 255, 1);
+}
+
+.navigationItems {
+    width: 70%;
+    margin: 0 50px;
+
+    /* flex properties */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* header list items default text style */
+    font-family: 'Roboto Mono';
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.navigationItems>li {
+    display: inline-block;
+}
+
+.navigationItems>li a {
+    color: white;
+}
+
+.connect {
+    flex-grow: 1;
+    list-style: none;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+.connect>li {
+    display: inline-block;
+}
+
+.loginBtn {
+    width: 140px;
+    line-height: 34px;
+    display: inline-block;
+    
+    /* styling */
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    /* font styling */
+    color: rgb(96, 96, 96);
+    font-family: Roboto Mono;
+    text-align: center;
+    font-weight: Bold;
+    font-size: 14px;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.register {
+    /* font styling */
+    color: white;
+    font-family: Roboto Mono;
+    font-weight: Bold;
+    text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.username {
+    color: white;
+}
+
+
+.loginBtn:hover {
+    background-color: rgb(234, 234, 234);
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.headerLogo {
+    height: 100%;
+}
+
+.searchBar {
+    width: 16vw;
+    height: 34px;
+    padding-left: 36px;
+    background: rgba(250, 250, 250, 0.9);
+    border: none;
+    border-radius: 8px;
+
+    /* font styling */
+    color: rgba(60, 60, 60, 0.6);
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.searchElement {
+    position: relative;
+}
+
+.searchSymbol {    
+    background-image: url(../images/header/magnifying-glass.svg);
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    position: absolute;
+    top: 6px;
+    left: 17px;
+}
+
+
+/* Footer styling */
+
+footer {
+    background-color: #D5D5D5;
+    color: black;
+    padding: 20px;
+}
+
+.inner-container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    margin: 150px;
+}
+
+.footer-social ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-social li {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.footer-contact {
+    margin-top: 20px;
+    /* color: white; */
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-copy {
+    margin-top: 20px;
+    /* color: white; */
+    text-align: center;
+}
+
+.footer-social a {
+    /* color: white; */
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.icon-facebook2:before {
+    content: "\ea91";
+    color: #7381FF;
+}
+
+.icon-youtube1:before {
+    content: "\ea9d";
+    color: #7381FF;
+}
+
+.icon-linkedin1:before {
+    content: "\eac9";
+    color: #7381FF;
+}
+
+@media only screen and (max-width: 1080px) {
+    .searchBar {
+        width: 20px;
+    }
+}
