@@ -13,14 +13,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::get('/regAlt', function () {
+    return view('auth._register');
+});
+
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('classes', function () {
+    return view('classes');
+});
+
+Route::get('experiences', function () {
+    return view('experiences');
+});
+
+Route::get('search', function () {
+    return view('search');
+});
+
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('contact', function () {
+    return view('contact');
+});
+
+
+Route::get('createpost', function() {
+    return view('createPost');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

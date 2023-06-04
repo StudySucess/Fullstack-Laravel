@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap');
+
+main {
+    padding: 75px;
+}
+
+h1 {
+    margin-left: 20px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    color: #000000;
+}
+
+.courseContainer {
+    min-height: 500px;
+
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.courseContainer>div {
+    width: 340px;
+    height: 240px;
+    background: rgb(233, 233, 233);
+    border-radius: 5px;
+    font-size: 20px;
+    position: relative;
+
+    padding: 20px;
+}
+
+.courseContainer>div::before {
+    content: '';
+    background-image: url(../images/example/html-css-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4;
+}
+
+.courseContainer>div h3 {
+    height: 80px;
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+    color: #4445BC;
+    position: relative;
+}
+
+.courseContainer>div>h4 {
+    text-align: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+.courseContainer>div>p {
+    text-align: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 400;
+}

@@ -1,0 +1,92 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #fafafa;
+
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.post-box {
+  width: 1000px;
+  padding: 20px;
+  margin: 50px auto;
+  box-sizing: content-box;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.selections>div {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.selections>div>select {
+  margin-top: 10px;
+  width: 200px;
+}
+
+input,
+select {
+  padding: 7px;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#post-title {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  border-color: #ddd;
+  border-radius: 4px;
+  resize: none;
+}
+
+input[type=file] {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
+
+input[type=file]::file-selector-button {
+  padding: 5px;
+  color: #fff;
+  background-color: #0079d3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  width: 25%;
+  margin-top: 50px;
+  padding: 5px;
+  color: #fff;
+  background-color: #0079d3;
+  border: none;
+  cursor: pointer;
+  float: left;
+  align-self: center;
+}
+
+input[type="submit"]:hover {
+  background-color: #005fad;
+}
