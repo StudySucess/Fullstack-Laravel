@@ -12,8 +12,10 @@
             </div>
         @endif
 
-        {{ __('You are logged in!') }}
-        <h1 class="welcomeMsg">
+        @auth
+            {{ __('You are logged in!') }}
+            <h1 class="welcomeMsg">
+        @endauth
 
         </h1>
         <div class="intro">
