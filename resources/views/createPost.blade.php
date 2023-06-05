@@ -10,38 +10,36 @@
 		<form class="flexContainer">
 			<div class="selections">
 				<div>
-					<label for="post-type">Soort post</label><br>
-					<select id="post-type">
-						<option disabled selected value="d">-- Kies soort post --
-						</option>
-						<option>Vraag</option>
-						<option>Samenvatting</option>
-						<option>Cheatsheet</option>
-						<option>Stage-ervaring</option>
-						<option>Andere</option>
-					</select>
-				</div>
-				<div>
-					<label for="post-course">Vak</label><br>
-					<select id="post-course">
-						<option disabled selected value>-- Kies een vak --</option>
-						<option>IT-essentials</option>
-						<option>Java Advanced</option>
-						<option>Java Frameworks</option>
-						<option>OSFundamentals</option>
-						<option></option>
-					</select>
-				</div>
-				<div>
-					<label for="post-category">Categorie - <i>Optioneel</i></label><br>
-					<select id="post-category">
-						<option selected value>-- Kies een categorie --</option>
-						<option>IT</option>
-						<option>Taal</option>
-						<option>Technologie</option>
-						<option>Ingenieur</option>
-					</select>
-				</div>
+                    <label for="post-type">Soort post</label><br>
+                    <select id="post-type" name="post-type">
+                        <option disabled selected value="">-- Kies soort post --</option>
+                        <option value="vraag">Vraag</option>
+                        <option value="samenvatting">Samenvatting</option>
+                        <option value="cheatsheet">Cheatsheet</option>
+                        <option value="stage-ervaring">Stage-ervaring</option>
+                        <option value="andere">Andere</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="post-course">Vak</label><br>
+                    <select id="post-course" name="post-course">
+                        <option disabled selected value="">-- Kies een vak --</option>
+                        <option value="it-essentials">IT-essentials</option>
+                        <option value="java-advanced">Java Advanced</option>
+                        <option value="java-frameworks">Java Frameworks</option>
+                        <option value="os-fundamentals">OSFundamentals</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="post-category">Categorie - <i>Optioneel</i></label><br>
+                    <select id="post-category" name="post-category">
+                        <option value="">-- Kies een categorie --</option>
+                        <option value="it">IT</option>
+                        <option value="taal">Taal</option>
+                        <option value="technologie">Technologie</option>
+                        <option value="ingenieur">Ingenieur</option>
+                    </select>
+                </div>
 			</div>
 
 
@@ -51,7 +49,7 @@
 			<textarea id="post-desc" name="post-text" placeholder="Beschrijving" rows="5"></textarea>
 			<div>
 				<label for="post-upload">Bijlage(n)</label><br>
-				<input id="post-upload" type="file">
+				<input id="post-upload" type="file" name="post-upload">
 			</div>
 
 			<input type="submit" value="Post">
