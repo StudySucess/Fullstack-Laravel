@@ -7,11 +7,11 @@
 @section('content')
 	<div class="post-box">
 		<h3>Een nieuwe post aanmaken</h3>
-		<form class="flexContainer">
+		<form class="flexContainer" action="{{ route('store') }}">
 			<div class="selections">
 				<div>
                     <label for="post-type">Soort post</label><br>
-                    <select id="post-type" name="post-type">
+                    <select id="post-type" name="post_type">
                         <option disabled selected value="">-- Kies soort post --</option>
                         <option value="vraag">Vraag</option>
                         <option value="samenvatting">Samenvatting</option>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="post-course">Vak</label><br>
-                    <select id="post-course" name="post-course">
+                    <select id="post-course" name="post_course">
                         <option disabled selected value="">-- Kies een vak --</option>
                         <option value="it-essentials">IT-essentials</option>
                         <option value="java-advanced">Java Advanced</option>
@@ -32,7 +32,7 @@
                 </div>
                 <div>
                     <label for="post-category">Categorie - <i>Optioneel</i></label><br>
-                    <select id="post-category" name="post-category">
+                    <select id="post-category" name="post_category">
                         <option value="">-- Kies een categorie --</option>
                         <option value="it">IT</option>
                         <option value="taal">Taal</option>
@@ -44,12 +44,12 @@
 
 
 
-			<input type="text" id="post-title" name="post-title" placeholder="Titel">
+			<input type="text" id="post-title" name="post_title" placeholder="Titel">
 
-			<textarea id="post-desc" name="post-text" placeholder="Beschrijving" rows="5"></textarea>
+			<textarea id="post-desc" name="post_text" placeholder="Beschrijving" rows="5"></textarea>
 			<div>
 				<label for="post-upload">Bijlage(n)</label><br>
-				<input id="post-upload" type="file" name="post-upload">
+				<input id="post-upload" type="file" name="post_upload">
 			</div>
 
 			<input type="submit" value="Post">
