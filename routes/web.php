@@ -46,11 +46,12 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-
-Route::get('createpost', function() {
-    return view('createPost');
-});
-
 Auth::routes();
 
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/createPost', 'App\Http\Controllers\PostController@create')->name('createPost');
+
+Route::post('/store', 'App\Http\Controllers\PostController@store')->name('store');
+
+Route::get('/show', 'App\Http\Controllers\PostController@show')->name('show');
