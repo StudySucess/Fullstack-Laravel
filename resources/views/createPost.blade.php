@@ -7,9 +7,15 @@
 @section('content')
 	<div class="post-box">
 		<h3>Een nieuwe post aanmaken</h3>
-		<form class="flexContainer" action="{{ route('store') }}">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+		<form class="flexContainer" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+            
 			<div class="selections">
-				<div>
+                <div>
                     <label for="post-type">Soort post</label><br>
                     <select id="post-type" name="post_type">
                         <option disabled selected value="">-- Kies soort post --</option>
@@ -19,6 +25,9 @@
                         <option value="stage-ervaring">Stage-ervaring</option>
                         <option value="andere">Andere</option>
                     </select>
+                    @error('post_type')
+                        <strong>{{ $message }}</strong>
+                    @enderror
                 </div>
                 <div>
                     <label for="post-course">Vak</label><br>
@@ -29,6 +38,9 @@
                         <option value="java-frameworks">Java Frameworks</option>
                         <option value="os-fundamentals">OSFundamentals</option>
                     </select>
+                    @error('post_text')
+                        <strong>{{ $message }}</strong>
+                    @enderror
                 </div>
                 <div>
                     <label for="post-category">Categorie - <i>Optioneel</i></label><br>
@@ -39,20 +51,31 @@
                         <option value="technologie">Technologie</option>
                         <option value="ingenieur">Ingenieur</option>
                     </select>
+                    @error('post_category')
+                    <strong>{{ $message }}</strong>
+                    @enderror
                 </div>
 			</div>
-
-
-
+            
+            
+            
 			<input type="text" id="post-title" name="post_title" placeholder="Titel">
-
+            @error('post_title')
+            <strong>{{ $message }}</strong>
+            @enderror
+            
 			<textarea id="post-desc" name="post_text" placeholder="Beschrijving" rows="5"></textarea>
-			<div>
-				<label for="post-upload">Bijlage(n)</label><br>
-				<input id="post-upload" type="file" name="post_upload">
-			</div>
-
+            @error('post_text')
+                <strong>{{ $message }}</strong>
+            @enderror
+                
+                <div>
+                    <label for="post-upload">Bijlage(n)</label><br>
+                    <input id="post-upload" type="file" name="post_upload[]" multiple>
+                </div>
+                
 			<input type="submit" value="Post">
+            @csrf
 		</form>
 	</div>
-@endsection
+    @endsection
