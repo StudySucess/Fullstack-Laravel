@@ -11,7 +11,9 @@
                     <p>Attachments:</p>
                     <ul>
                         @foreach ($post->post_upload as $file)
-                            <li>{{ $file }}</li>
+                            <li>
+                                <a href="{{ asset('your_upload_folder/' . $file) }}" download>{{ $file }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 @endif
