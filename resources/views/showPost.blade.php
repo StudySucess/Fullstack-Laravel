@@ -10,11 +10,9 @@
                 @if ($post->post_upload)
                     <p>Attachments:</p>
                     <ul>
-                        @foreach ($post->post_upload as $file)
-                            <li>
-                                <a href="{{ asset('your_upload_folder/' . $file) }}" download>{{ $file }}</a>
-                            </li>
-                        @endforeach
+                        <li>
+                            <a href="{{ asset('post_files/' . $post->post_upload) }}" download>{{ $post->post_upload }}</a>
+                        </li>
                     </ul>
                 @endif
             </div>

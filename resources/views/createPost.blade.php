@@ -38,7 +38,7 @@
                         <option value="java-frameworks">Java Frameworks</option>
                         <option value="os-fundamentals">OSFundamentals</option>
                     </select>
-                    @error('post_text')
+                    @error('post_course')
                         <strong>{{ $message }}</strong>
                     @enderror
                 </div>
@@ -71,7 +71,7 @@
                 
                 <div>
                     <label for="post-upload">Bijlage(n)</label><br>
-                    <input id="post-upload" type="file" name="post_upload[]" multiple>
+                    <input id="post-upload" type="file" name="post_upload" multiple>
                 </div>
                 
 			<input type="submit" value="Post">
