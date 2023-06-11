@@ -14,8 +14,6 @@ h1 {
 }
 
 .courseContainer {
-    min-height: 500px;
-
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
