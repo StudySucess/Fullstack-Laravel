@@ -6,14 +6,11 @@
 
 @section('content')
 	<div class="post-box">
-		<h3>Een nieuwe post aanmaken</h3>
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-		<form class="flexContainer" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+		<h3>Je post bewerken</h3>
+
+		<form class="flexContainer" action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
 			<div class="selections">
                 <div>
@@ -50,7 +47,7 @@
                     <select id="post-category" name="category">
                         <option value="">-- Kies een categorie --</option>
                         <option value="it">IT</option>
-                        <option value="taal">Talen</option>
+                        <option value="taal">Taal</option>
                         <option value="technologie">Technologie</option>
                         <option value="ingenieur">Ingenieur</option>
                     </select>
@@ -61,7 +58,7 @@
 			</div>
             
             <div>
-                <input type="text" id="post-title" name="title" placeholder="Titel">
+                <input type="text" id="post-title" name="title" placeholder="Titel" value="{{ $post->title }}">
 
                 @error('title')
                     <strong>{{ $message }}</strong>
@@ -69,7 +66,7 @@
             </div>
 
             <div>
-                <textarea id="post-desc" name="text" placeholder="Beschrijving" rows="5"></textarea>
+                <textarea id="post-desc" name="text" placeholder="Beschrijving" rows="5">{{ $post->text }}</textarea>
 
                 @error('text')
                     <strong>{{ $message }}</strong>
@@ -81,7 +78,7 @@
                 <input id="post-upload" type="file" name="upload" multiple>
             </div>
                 
-			<input type="submit" value="Post">
+			<input type="submit" value="Wijzigen toepassen">
             @csrf
 		</form>
 	</div>
