@@ -9,11 +9,32 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    public function create()
+    //zorgen dat de niet ingelogde gebruiken alleen posts.index & posts.show kan bekijken:
+    public function __construct()
     {
-        return view('createPost');
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -43,10 +64,35 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Post created successfully.');
     }
 
-
-    public function show()
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $posts = Post::all();
-        return view('showPost', compact('posts'));
-    }    
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }

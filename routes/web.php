@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,12 +47,9 @@ Route::get('contact', function () {
     return view('contact');
 });
 
-Auth::routes();
 
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/createPost', 'App\Http\Controllers\PostController@create')->name('createPost');
+Route::resource('/posts', PostController::class);
 
-Route::post('/store', 'App\Http\Controllers\PostController@store')->name('store');
-
-Route::get('/show', 'App\Http\Controllers\PostController@show')->name('show');
+Auth::routes();

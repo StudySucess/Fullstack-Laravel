@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+	{{ asset('css/showPost.css') }}
+@endsection
+
 @section('content')
     <div class="post-container">
         <h1>All Posts</h1>

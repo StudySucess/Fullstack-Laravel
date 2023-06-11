@@ -161,24 +161,6 @@ body {
     left: 17px;
 }
 
-/* showPost styling */
-.post-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    text-align: center;
-}
-
-.post {
-    max-width: 600px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
 
 /* Footer styling */
 

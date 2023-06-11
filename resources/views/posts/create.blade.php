@@ -12,7 +12,7 @@
                 {{ session('success') }}
             </div>
         @endif
-		<form class="flexContainer" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+		<form class="flexContainer" action="{{ route('posts.create') }}" method="POST" enctype="multipart/form-data">
             
 			<div class="selections">
                 <div>
