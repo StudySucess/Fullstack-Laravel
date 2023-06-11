@@ -132,6 +132,14 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $post = Post::findOrFail($id);
+        if ($post->user_id != Auth::user()->id) {
+            abort(403);
+        }
+
+        $post->delete();
+
+        return redirect('posts')->with('status', 'Post deleted');
     }
 }

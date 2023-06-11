@@ -8,19 +8,15 @@
 	<div class="post-box">
         <small>
             Gepost door 
-            <a href="">
-                {{ $post->user->name }}
-                @if ($post->user->is_admin)
-                    <i class="bi bi-person-fill-gear"></i>
-                @endif
-            </a> op {{ $post->created_at->format('d/m/Y \o\m H:i') }}
+            <a href="">{{ $post->user->name }}</a>
+             op {{ $post->created_at->format('d/m/Y \o\m H:i') }}
         </small>
-		<h3>{{ $post->title }}</h3>
-        
         @if($post->user_id == Auth::user()?->id)
             <a href="{{ route('posts.edit', $post->id) }}" style="float: right">Post wijzigen</a>
-        @endauth
-        
+        @endif
+
+		<h3>{{ $post->title }}</h3>
+
 		<div class="flexContainer">
             
 			<div class="selections">
@@ -52,11 +48,21 @@
                 </div>
             @endif
             
+            @if($post->user_id == Auth::user()?->id)
+                <form method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" href="{{ route('posts.destroy', $post->id) }}" style="float: right" onclick="return confirm('Are you sure you want to delete this post, this action cannot be undone!');" class="btn btn-danger btn-sm">Post verwijderen</button>
+                </form>
+            @endif
+
             @if(session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            
+            @endif
+
 		</div>
 	</div>
     @endsection
