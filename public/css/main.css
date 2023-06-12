@@ -31,6 +31,10 @@ body {
     margin: 0px;
 }
 
+main {
+    min-height: 600px;
+}
+
 /* Header styling */
 
 .header {

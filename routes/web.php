@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,10 +48,8 @@ Route::get('contact', function () {
 });
 
 
-Route::get('createpost', function() {
-    return view('createPost');
-});
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/posts', PostController::class);
 
 Auth::routes();
-
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
