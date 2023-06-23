@@ -17,7 +17,7 @@
 
             <div class="registerTab">
                 
-                @yield('content');
+                @yield('content')
 
             </div>
         </div>
