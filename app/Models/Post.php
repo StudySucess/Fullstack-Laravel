@@ -13,10 +13,10 @@ class Post extends Model
 
     protected $fillable = [
         'type',
-        'course',
         'title',
         'text',
-        'upload'
+        'upload',
+        'vak_id'
     ];
 
     public function user()

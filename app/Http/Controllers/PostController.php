@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Vak;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Vak;
 
 class PostController extends Controller
 {
@@ -39,32 +39,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validated = $request->validate([
             'title' => 'required|min:3',
             'text' => 'required|min:10',
             'type' => 'required',
-            'course' => 'required',
             'category' => 'nullable',
-            'upload' => 'file'
+            'upload' => 'nullable|file|mimes:pdf,docx,pptx'
         ]);
-
-        $file = $request->file('post_upload');
-
+        
+        if($validated['category'] == "stage-ervaring") {
+            Vak::findOrFail($request->input('course'));
+        }
+        
         $post = new Post;
         $post->title = $validated['title'];
         $post->text = $validated['text'];
         $post->type = $validated['type'];
-        $post->course = $validated['course'];
         $post->category = $validated['category'];
+        $post->vak_id = $request->input('course');
         $post->user_id = Auth::user()->id;
-        $post->vak_id = $validated['vak_id'];
 
-        if ($file) {
-            $filename = time() . '_' . $file->getClientOriginalName();
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
+            $filename = time() . '-' . $file->getClientOriginalName();
             $file->move(public_path('post_files'), $filename);
-            $post->post_upload = $filename;
+            $post->upload = $filename;
         }
-
         $post->save();
 
         return redirect()->route('posts.show', $post->id)->with('status', 'Post created successfully');
@@ -77,7 +78,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         return view('posts.show', compact('post'));
-    }
+    }   
 
     /**
      * Show the form for editing the specified resource.
@@ -103,25 +104,20 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:3',
             'text' => 'required|min:10',
-            'type' => 'required',
-            'course' => 'required',
             'category' => 'nullable',
-            'upload' => 'file'
+            'upload' => 'file|nullable|mimes:pdf,docx,pptx'
         ]);
 
         $file = $request->file('post_upload');
 
         $post->title = $validated['title'];
         $post->text = $validated['text'];
-        $post->type = $validated['type'];
-        $post->course = $validated['course'];
         $post->category = $validated['category'];
-        $post->user_id = Auth::user()->id;
 
         if ($file) {
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('post_files'), $filename);
-            $post->post_upload = $filename;
+            $post->upload = $filename;
         }
 
         $post->save();
@@ -143,4 +139,5 @@ class PostController extends Controller
 
         return redirect('posts')->with('status', 'Post deleted');
     }
+
 }

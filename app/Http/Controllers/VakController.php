@@ -7,33 +7,31 @@ use App\Models\Vak;
 
 class VakController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /** 
      * Display a listing of the resource.
      */
     public function index()
     {
         $vakken = Vak::all();
-        return view('classes', compact('vakken'));
+        return view('courses.courses', compact('vakken'));
     }    
 
     public function show($name)
     {
-        $vak = Vak::where('name', $name)->firstOrFail();    
-        return view('posts.show', compact('vak'));
+        $vak = Vak::where('name', $name)->firstOrFail();
+        return view('courses.show', compact('vak'));
     } 
     
-
-    /**
-     * create new vak.
-     */
     public function create()
     {   
         return view('courses.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([

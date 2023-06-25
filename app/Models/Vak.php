@@ -13,7 +13,7 @@ class Vak extends Model
 
     protected $table = 'vakken';
 
-    public function post() 
+    public function posts() 
     {
         return $this->hasMany('App\Models\Post');
     }
