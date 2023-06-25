@@ -55,6 +55,8 @@
 
 					{{-- user dropdown menu --}}
 					<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('user', Auth::user()->name) }}">Profiel</a>
+                        <a class="dropdown-item" href="{{ route('user.edit') }}">Accountgegevens</a>
                         <a class="dropdown-item" href="{{ route('posts.create') }}">Post aanmaken</a>
                         <hr class="dropdown-divider">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
