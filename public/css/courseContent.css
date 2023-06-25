@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+.side_Buttons {
+    bottom: -500px;
+    display: grid;
+    justify-content: end;
+    position: relative;
+}
+
+.courseCover {
+    height: 200px;
+    background-image: url(../images/example/CourseCoverBG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: -1;
+}
+
+.titleBg {
+    height: 60%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    background: rgba(217, 217, 217, 0.9);
+    border: 1px solid #5B5B5B;
+    position: relative;
+}
+
+.titleBg>* {
+    display: inline-block;
+}
+
+.titleBg>img {
+    height: 100%;
+    user-select: none;
+}
+
+.classTitle {
+    width: 60%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(0%, -50%);
+    font-size: 50px;
+    font-family: 'Shippori Antique B1';
+    font-weight: 400;
+
+}
+
+.canvasLink {
+    text-align: center;
+    width: 150px;
+    float: right;
+    position: relative;
+    z-index: 1;
+}
+
+.canvasLink>p {
+    font-size: 12px;
+    font-family: 'Roboto Mono';
+    font-weight: 700;
+    margin: 0;
+}
+
+.canvasBtn {
+    height: 65px;
+    width: 65px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #393939;
+    background-image: url(../images/example/canvasBt.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.canvasBtn>img {
+    width: 100%;
+}
+
+.courseContent-container {
+    align-items: center;
+    background: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.post {
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid #B9B9B9;
+    border-radius: 4px;
+    position: relative;
+    margin: 5%;
+    width: 740px;
+}
+
+
+
+.postHeader {
+    background: #F1F1F1;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid #B9B9B9;
+    padding: 5px;
+}
+
+.post h2 {
+    margin: 0;
+    display: inline-block;
+}
+
+.postHeader h3 {
+    color: #B9B9B9;
+    font-family: 'SeoulNamsan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    float: right;
+    margin: 0px;
+}
+
+.postBody {
+    font-size: 20px;
+    max-height: 40px;
+    overflow: hidden;
+    margin: 20px;
+    transition-property: max-height;
+    transition-duration: 2s;
+    transition-delay: 0.5s;
+    width: 650px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.postBody:hover {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.postFooter {
+
+    background: #F1F1F1;
+    border-radius: 0px 0px 5px 5px;
+    border-top: 1px solid #B9B9B9;
+
+}
+
+.file_count_post {
+    color: #B9B9B9;
+    display: inline-block;
+    font-family: 'SeoulNamsan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0px;
+    position: relative;
+    right: -5px;
+}
+
+.icon_file {
+    display: inline-block;
+    position: relative;
+    right: -5px;
+    /* betere manier om alle elementen van footer verticaal te plaatsen?
+    transform: translate(0%, +10%); */
+}
+
+.icon_like {
+    display: inline-block;
+    position: relative;
+    right: -250px;
+    top: 3px;
+}
+
+.like_count {
+    display: inline-block;
+    position: relative;
+    right: -250px;
+    top: -2px;
+    font-family: SeoulNamsan;
+    font-size: 20px;
+    color: #5D6AE1;
+}
+
+.icon_dislike {
+    display: inline-block;
+    position: relative;
+    right: -280px;
+    top: 3px;
+}
+
+.dislike_count {
+    display: inline-block;
+    position: relative;
+    right: -280px;
+    top: -2px;
+    font-family: SeoulNamsan;
+    font-size: 20px;
+    color: #5D6AE1;
+}
+
+.reply {
+    display: inline-block;
+    position: relative;
+    right: -510px;
+    top: 3px;
+}
+
+.add_favourite {
+    display: inline-block;
+    position: relative;
+    right: -520px;
+    top: 3px;
+}
+
+.upload_file {
+    display: inline-block;
+    position: relative;
+    right: -530px;
+    top: 3px;
+}
