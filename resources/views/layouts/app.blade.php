@@ -23,9 +23,10 @@
             </li>
             <li><a href="#">Ervaringen</a></li>
             <li class="searchElement">
-                <form></form>
-                <input type="text" class="searchBar" placeholder="Zoek studiemateriaal / posts">
-                <a href="{{ route('search') }}" class="searchSymbol"></a>
+                <form action="{{ route('search') }}" method="GET">
+                    <input type="text" name="searchterm" class="searchBar" placeholder="Zoek studiemateriaal / posts">
+                    <button class="searchSymbol"></button>
+                </form>
             </li>
             <li><a href="{{ route('about') }}">Over ons</a></li>
         </nav>

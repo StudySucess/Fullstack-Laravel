@@ -162,7 +162,9 @@ main {
     background-size: cover;
     position: absolute;
     top: 6px;
-    left: 17px;
+    left: 10px;
+    border: none;
+    background-color: transparent;
 }
 
 
