@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VakController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -16,20 +17,19 @@ use App\Http\Controllers\VakController;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/regAlt', function () {
-    return view('auth._register');
-});
-
-
+//static
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
-Route::get('/classes', [App\Http\Controllers\VakController::class, 'index'])->name('classes.index');
+Route::get('about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('contact', function () {
+    return view('contact');
+});
 
 Route::get('experiences', function () {
     return view('experiences');
@@ -37,22 +37,20 @@ Route::get('experiences', function () {
 
 Route::get('search', function () {
     return view('search');
-});
+})->name('search');
 
-Route::get('about', function () {
-    return view('about');
-});
-
-Route::get('contact', function () {
-    return view('contact');
-});
-
-
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//users
+Route::get('/users/{username}', [UserController::class, 'show'])->name('user');
+Route::get('/profile/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/profile/edit', [UserController::class, 'update'])->name('user.update');    
 
 Route::resource('/posts', PostController::class);
 
-Route::get('/classes/{name}', [App\Http\Controllers\PostController::class, 'show'])->name('courses.show');
-
-Route::get('/courses/create', [VakController::class, 'create'])->name('courses.create');
 Auth::routes();
+
+//courses
+Route::get('/courses', [VakController::class, 'index'])->name('courses');
+Route::get('/courses/{name}', [VakController::class, 'show'])->name('courses.show');
+Route::get('/courses/create', [VakController::class, 'create'])->name('courses.create');
+
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
