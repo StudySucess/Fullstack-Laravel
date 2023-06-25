@@ -13,7 +13,7 @@
     <main>
         <div class="headDisplay">
 
-            <a href="index.php"><img class="logo" src="{{ url('images/logo-complete.png') }}"></a>
+            <a href="index.php"><img class="logo" src="{{ asset('images/logo-complete.png') }}"></a>
 
             <div class="registerTab">
                 
