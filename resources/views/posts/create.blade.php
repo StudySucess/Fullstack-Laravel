@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('css')
-	{{ asset('css/createPost.css') }}
+    {{ asset('css/createPost.css') }}
 @endsection
 
 @section('content')
-	<div class="post-box">
-		<h3>Een nieuwe post aanmaken</h3>
+    <div class="post-box">
+        <h3>Een nieuwe post aanmaken</h3>
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
-		<form class="flexContainer" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="flexContainer" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-			<div class="selections">
+            <div class="selections">
                 <div>
                     <label for="post-type">Soort post</label><br>
                     <select id="post-type" name="type">
@@ -31,14 +31,19 @@
                     @enderror
                 </div>
 
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div>
                     <label for="post-course">Vak</label><br>
                     <select id="post-course" name="course">
                         <option disabled selected value="">-- Kies een vak --</option>
-                        <option value="it-essentials">IT-essentials</option>
-                        <option value="java-advanced">Java Advanced</option>
-                        <option value="java-frameworks">Java Frameworks</option>
-                        <option value="os-fundamentals">OSFundamentals</option>
+                        @foreach($vakken as $vak)
+                            <option value="{{ $vak->id }}">{{ $vak->name }}</option>
+                        @endforeach
                     </select>
                     @error('course')
                         <strong>{{ $message }}</strong>
@@ -58,7 +63,7 @@
                         <strong>{{ $message }}</strong>
                     @enderror
                 </div>
-			</div>
+            </div>
             
             <div>
                 <input type="text" id="post-title" name="title" placeholder="Titel">
@@ -81,8 +86,8 @@
                 <input id="post-upload" type="file" name="upload" multiple>
             </div>
                 
-			<input type="submit" value="Post">
+            <input type="submit" value="Post">
             @csrf
-		</form>
-	</div>
-    @endsection
+        </form>
+    </div>
+@endsection

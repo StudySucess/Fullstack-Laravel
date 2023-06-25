@@ -7,47 +7,12 @@
 @section('content')
     <h1>Je cursussen</h1>
     <div class="courseContainer">
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
-        <div>
-            <h3>IT-Essentials</h3>
-            <h4>Academiejaar 2022-2023</h4>
-            <p>Geert Coulummier</p>
-        </div>
+        @foreach($vakken as $vak)
+            <div class="course" onclick="window.location.href='{{ route('courses.show', $vak->name) }}'">
+                <h3>{{ $vak->name }}</h3>
+                <h4>Academiejaar 2022-2023</h4>
+                <p>{{ $vak->naam_docent }}</p>
+            </div>
+        @endforeach
     </div>
-    {{-- <script src="js/courses.js"></script> --}}
 @endsection
-

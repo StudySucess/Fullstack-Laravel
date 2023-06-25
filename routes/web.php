@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\VakController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +29,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('classes', function () {
-    return view('classes');
-});
+Route::get('/classes', [App\Http\Controllers\VakController::class, 'index'])->name('classes.index');
 
 Route::get('experiences', function () {
     return view('experiences');
@@ -52,4 +52,7 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 
 Route::resource('/posts', PostController::class);
 
+Route::get('/classes/{name}', [App\Http\Controllers\PostController::class, 'show'])->name('courses.show');
+
+Route::get('/courses/create', [VakController::class, 'create'])->name('courses.create');
 Auth::routes();

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Vak;
 
 class PostController extends Controller
 {
@@ -30,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $vakken = Vak::all();
+        return view('posts.create', compact('vakken'));
     }
 
     /**
@@ -56,6 +57,7 @@ class PostController extends Controller
         $post->course = $validated['course'];
         $post->category = $validated['category'];
         $post->user_id = Auth::user()->id;
+        $post->vak_id = $validated['vak_id'];
 
         if ($file) {
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -65,7 +67,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.show', $post->id)->with('Status', 'Post created successfully');
+        return redirect()->route('posts.show', $post->id)->with('status', 'Post created successfully');
     }
 
     /**
@@ -132,7 +134,6 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-
         $post = Post::findOrFail($id);
         if ($post->user_id != Auth::user()->id) {
             abort(403);

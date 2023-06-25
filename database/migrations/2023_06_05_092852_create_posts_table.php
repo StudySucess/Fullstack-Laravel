@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('course');
             $table->string('category')->nullable();
             $table->integer('user_id');
+            $table->integer('vak_id');
             $table->timestamps();
+
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreignId('vak_id')->constrained();
         });
     }
 
