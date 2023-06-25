@@ -4,12 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-	{{-- importeerd boostrap, voor standraard layout & dropdown script --}}
 	@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 	<link rel="stylesheet" href="@yield('css')">
+    @yield('additional-resources')
 	<title>{{ config('app.name', 'Laravel') }}</title>
 	
 </head>
@@ -17,32 +16,33 @@
 	<header class="header headerGradient">
 		<a href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" class="headerLogo"></a>
         <nav class="navigationItems">
-            <li><a href="{{ url('overview') }}">Overzicht</a></li>
+            {{-- <li><a href="#">Overzicht</a></li> --}}
             <li>
-                <a href="{{ url('classes') }}">Vakken</a>
+                <a href="{{ route('courses') }}">Vakken</a>
                 <a href=""><img src="{{ asset('images/header/dropdown-sel.svg') }}"></a>
             </li>
-            <li><a href="{{ url('experiences') }}">Ervaringen</a></li>
+            <li><a href="#">Ervaringen</a></li>
             <li class="searchElement">
-                <a href="{{ url('search') }}"><img></a>
+                <a href="{{ route('search') }}"><img></a>
                 <input type="text" class="searchBar" placeholder="Zoek studiemateriaal / posts">
                 <div class="searchSymbol"></div>
             </li>
-            <li><a href="{{ url('about') }}">Over ons</a></li>
+            <li><a href="{{ route('about') }}">Over ons</a></li>
         </nav>
 		<div class="connect">
 			
 			{{-- indien gebruiker niet ingelogd is (guest): --}}
 			@guest
+
 				@if (Route::has('login'))
-					<li>
-						<a href="{{ route('login') }}" class="loginBtn">{{ __('Login') }}</a>
-					</li>
+                    <li>
+                        <a href="{{ route('login') }}" class="register">{{ __('Login') }}</a>
+                    </li>
 				@endif
 
 				@if (Route::has('register'))
 					<li>
-						<a href="{{ route('register') }}" class="register">{{ __('Register') }}</a>
+						<a href="{{ route('register') }}" class="loginBtn">{{ __('Register') }}</a>
 					</li>
 				@endif
 
@@ -55,12 +55,12 @@
 
 					{{-- user dropdown menu --}}
 					<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ route('logout') }}"
-							onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();">
-							{{ __('Logout') }}
-						</a>
-
+                        <a class="dropdown-item" href="{{ route('posts.create') }}">Post aanmaken</a>
+                        <hr class="dropdown-divider">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+        
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 							@csrf
 						</form>

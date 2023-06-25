@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('type');
             $table->text('text');
             $table->string('upload')->nullable();
-            $table->string('course');
             $table->string('category')->nullable();
             $table->integer('user_id');
+            $table->integer('vak_id')->nullable();
             $table->timestamps();
         });
     }
