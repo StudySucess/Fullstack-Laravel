@@ -14,42 +14,13 @@
 
 			<div class="selections">
                 <div>
-                    <label for="post-type">Soort post</label><br>
-                    <select id="post-type" name="type">
-                        <option disabled selected value="">-- Kies soort post --</option>
-                        <option value="vraag">Vraag</option>
-                        <option value="samenvatting">Samenvatting</option>
-                        <option value="cheatsheet">Cheatsheet</option>
-                        <option value="stage-ervaring">Stage-ervaring</option>
-                        <option value="andere">Andere</option>
-                    </select>
-                    @error('type')
-                        <strong>{{ $message }}</strong>
-                    @enderror
-                </div>
-
-                <div>
-                    <label for="post-course">Vak</label><br>
-                    <select id="post-course" name="course">
-                        <option disabled selected value="">-- Kies een vak --</option>
-                        <option value="it-essentials">IT-essentials</option>
-                        <option value="java-advanced">Java Advanced</option>
-                        <option value="java-frameworks">Java Frameworks</option>
-                        <option value="os-fundamentals">OSFundamentals</option>
-                    </select>
-                    @error('course')
-                        <strong>{{ $message }}</strong>
-                    @enderror
-                </div>
-
-                <div>
                     <label for="post-category">Categorie - <i>Optioneel</i></label><br>
                     <select id="post-category" name="category">
                         <option value="">-- Kies een categorie --</option>
                         <option value="it">IT</option>
-                        <option value="taal">Taal</option>
+                        <option value="taal">Design</option>
                         <option value="technologie">Technologie</option>
-                        <option value="ingenieur">Ingenieur</option>
+                        <option value="ingenieur">Programmeren</option>
                     </select>
                     @error('category')
                         <strong>{{ $message }}</strong>
@@ -61,7 +32,9 @@
                 <input type="text" id="post-title" name="title" placeholder="Titel" value="{{ $post->title }}">
 
                 @error('title')
-                    <strong>{{ $message }}</strong>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
 
@@ -69,7 +42,9 @@
                 <textarea id="post-desc" name="text" placeholder="Beschrijving" rows="5">{{ $post->text }}</textarea>
 
                 @error('text')
-                    <strong>{{ $message }}</strong>
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
                 
