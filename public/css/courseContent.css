@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .side_Buttons {
     bottom: -500px;
     display: grid;
@@ -10,7 +18,6 @@
 
 .courseCover {
     height: 200px;
-    background-image: url(../images/example/CourseCoverBG.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -73,7 +80,6 @@
     box-sizing: border-box;
     padding: 10px;
     background: #393939;
-    background-image: url(../images/example/canvasBt.png);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
@@ -91,6 +97,7 @@
     flex-direction: column;
     min-height: 100vh;
     position: relative;
+    padding-top: 80px;
 }
 
 .post {
@@ -99,8 +106,8 @@
     border: 1px solid #B9B9B9;
     border-radius: 4px;
     position: relative;
-    margin: 5%;
     width: 740px;
+    margin-bottom: 50px;
 }
 
 
@@ -154,7 +161,7 @@
 }
 
 .file_count_post {
-    color: #B9B9B9;
+    color: #7a7a7a;
     display: inline-block;
     font-family: 'SeoulNamsan';
     font-style: normal;
