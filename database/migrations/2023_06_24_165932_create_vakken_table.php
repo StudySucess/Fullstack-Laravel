@@ -18,7 +18,8 @@ class CreateVakkenTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('naam_docent');
-            $table->string('cursus_link');
+            $table->string('cursus_link')->nullable();
+            $table->string('cover_img_path');
         });
     }
 
