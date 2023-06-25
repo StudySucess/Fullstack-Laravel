@@ -55,7 +55,7 @@ li {
 
 .edit_profile {
   width: 720px;
-  height: 416px;
+  min-height: 420px;
   background: rgba(255, 255, 255, 1);
   border-radius: 12px;
   display: flex;
@@ -75,17 +75,17 @@ label {
   font-weight: bold;
 }
 
-input {
+input, #submit {
   margin-left: 20px;
   border: 2px solid black;
   border-radius: 5px;
-  width: 317px;
+  width: 320px;
   height: 35px;
 }
 
 #submit {
-  width: 74px;
   height: 35px;
+  width: fit-content;
 }
 
 .submitbtn {
