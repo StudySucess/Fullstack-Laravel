@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\searchController;
 use App\Http\Controllers\VakController;
 use App\Http\Controllers\UserController;
 
@@ -35,10 +36,6 @@ Route::get('experiences', function () {
     return view('experiences');
 });
 
-Route::get('search', function () {
-    return view('search');
-})->name('search');
-
 //users
 Route::get('/users/{username}', [UserController::class, 'show'])->name('user');
 Route::get('/profile/edit', [UserController::class, 'edit'])->name('user.edit');
@@ -52,5 +49,7 @@ Auth::routes();
 Route::get('/courses', [VakController::class, 'index'])->name('courses');
 Route::get('/courses/{name}', [VakController::class, 'show'])->name('courses.show');
 Route::get('/courses/create', [VakController::class, 'create'])->name('courses.create');
+
+Route::get('/search', [searchController::class, 'search'])->name('search');
 
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
