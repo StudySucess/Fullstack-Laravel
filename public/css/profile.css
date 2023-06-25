@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  height: 500px;
+  background: rgba(249, 242, 242, 1);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  background: rgb(207, 208, 226);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.navigation h1 {
+  margin-left: 20px;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+.links a {
+  text-decoration: none;
+  padding: 0 57px;
+  color: #737373;
+}
+
+#schoolnaam {
+  margin-left: 300px;
+  font-weight: bolder;
+}
+
+.profile-container {
+
+  background: rgba(249, 242, 242, 1);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.imgProfile {
+  padding: 20px;
+}
+
+.imgProfile img {
+  width: 134px;
+}
+
+.edit_profile {
+  width: 720px;
+  height: 416px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  margin: -202px 0px 0px 441px;
+  align-items: center;
+}
+
+.inputs {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  margin-left: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 317px;
+  height: 35px;
+}
+
+#submit {
+  width: 74px;
+  height: 35px;
+}
+
+.submitbtn {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .links {
+    margin-top: 20px;
+  }
+
+  .imgProfile {
+    margin-top: 20px;
+  }
+
+  .edit_profile {
+    margin: 20px;
+    width: auto;
+    height: auto;
+  }
+
+  .inputs {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
